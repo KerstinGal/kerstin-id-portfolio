@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kerstin — Instructional Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&family=Inter+Tight:wght@500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:        #F5F0E8;
+    --bg-card:   #EDE7D8;
+    --bg-dark:   #2C2E24;
+    --olive:     #6B7C4A;
+    --olive-lt:  #8A9E60;
+    --terra:     #C4956A;
+    --text:      #2C2E24;
+    --text-mid:  #5A5C50;
+    --text-lt:   #8A8C80;
+    --serif:     'DM Serif Display', Georgia, serif;
+    --sans:      'Inter', system-ui, sans-serif;
+    --mono:      'Inter Tight', monospace;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.2rem 4rem;
+    background: rgba(245,240,232,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(107,124,74,0.12);
+  }
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    color: var(--olive);
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 2.5rem; }
+  .nav-links a {
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-mid);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--olive); }
+
+  /* SECTIONS */
+  section { padding: 7rem 4rem; }
+  .container { max-width: 1080px; margin: 0 auto; }
+
+  /* HERO */
+  #hero {
+    min-height: 100vh;
+    display: flex; align-items: center;
+    padding-top: 8rem;
+  }
+  .hero-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    max-width: 1080px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .hero-eyebrow {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--olive);
+    margin-bottom: 1.4rem;
+    display: flex; align-items: center; gap: 0.8rem;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: inline-block; width: 2rem; height: 1px;
+    background: var(--olive);
+  }
+  h1 {
+    font-family: var(--serif);
+    font-size: clamp(2.8rem, 5vw, 4.2rem);
+    line-height: 1.1;
+    font-weight: 400;
+    color: var(--text);
+  }
+  h1 em {
+    font-style: italic;
+    color: var(--olive);
+  }
+  .hero-desc {
+    margin-top: 1.8rem;
+    font-size: 1.05rem;
+    color: var(--text-mid);
+    max-width: 38ch;
+    line-height: 1.75;
+  }
+  .hero-cta {
+    margin-top: 2.8rem;
+    display: flex; gap: 1rem; flex-wrap: wrap;
+  }
+  .btn {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    padding: 0.85rem 1.8rem;
+    font-size: 0.85rem; font-weight: 600;
+    letter-spacing: 0.04em;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: all 0.2s;
+    cursor: pointer; border: none;
+  }
+  .btn-primary {
+    background: var(--olive);
+    color: #fff;
+  }
+  .btn-primary:hover { background: #5A6B3A; }
+  .btn-outline {
+    background: transparent;
+    border: 1.5px solid var(--olive);
+    color: var(--olive);
+  }
+  .btn-outline:hover { background: var(--olive); color: #fff; }
+
+  .hero-stats {
+    display: flex; flex-direction: column; gap: 2rem;
+    padding-left: 3rem;
+    border-left: 1px solid var(--bg-card);
+  }
+  .stat-item {}
+  .stat-num {
+    font-family: var(--serif);
+    font-size: 3rem;
+    color: var(--terra);
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 0.8rem;
+    color: var(--text-lt);
+    margin-top: 0.3rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .stat-sub {
+    font-size: 0.8rem;
+    color: var(--text-mid);
+    margin-top: 0.25rem;
+  }
+
+  /* ABOUT */
+  #about { background: var(--bg-card); }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 5rem;
+    align-items: start;
+  }
+  .section-label {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--terra);
+    margin-bottom: 1.2rem;
+  }
+  h2 {
+    font-family: var(--serif);
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--text);
+  }
+  .about-tags {
+    display: flex; flex-wrap: wrap; gap: 0.6rem;
+    margin-top: 2rem;
+  }
+  .tag {
+    font-size: 0.75rem; font-weight: 500;
+    padding: 0.4rem 0.9rem;
+    border-radius: 2px;
+    background: var(--bg);
+    color: var(--olive);
+    letter-spacing: 0.04em;
+  }
+  .about-text p {
+    color: var(--text-mid);
+    line-height: 1.8;
+    margin-bottom: 1.2rem;
+    font-size: 1rem;
+  }
+  .about-text p:last-child { margin-bottom: 0; }
+
+  /* PORTFOLIO */
+  #portfolio {}
+  .portfolio-header {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    margin-bottom: 4rem;
+  }
+  .portfolio-header h2 { max-width: 24ch; }
+
+  .work-item {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 0;
+    margin-bottom: 1px;
+    background: var(--bg-card);
+    transition: background 0.2s;
+  }
+  .work-item:hover { background: #E5DCC8; }
+  .work-item:nth-child(even) {
+    grid-template-columns: 1.2fr 1fr;
+  }
+  .work-item:nth-child(even) .work-meta { order: 2; }
+  .work-item:nth-child(even) .work-preview { order: 1; }
+
+  .work-meta {
+    padding: 3rem 3.5rem;
+    display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .work-type {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--terra);
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+  .work-title {
+    font-family: var(--serif);
+    font-size: 1.7rem;
+    font-weight: 400;
+    line-height: 1.25;
+    color: var(--text);
+    margin-bottom: 1rem;
+  }
+  .work-desc {
+    font-size: 0.9rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+    margin-bottom: 1.8rem;
+  }
+  .work-tools {
+    display: flex; flex-wrap: wrap; gap: 0.4rem;
+    margin-bottom: 1.8rem;
+  }
+  .tool-tag {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.6rem;
+    border: 1px solid rgba(107,124,74,0.3);
+    color: var(--olive);
+    border-radius: 2px;
+  }
+  .work-link {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-size: 0.82rem; font-weight: 600;
+    color: var(--terra);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    transition: gap 0.2s;
+  }
+  .work-link:hover { gap: 0.9rem; }
+  .work-link svg { width: 14px; height: 14px; }
+
+  .work-preview {
+    background: var(--bg);
+    min-height: 280px;
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+  .preview-placeholder {
+    display: flex; flex-direction: column; align-items: center; gap: 1rem;
+    color: var(--text-lt);
+    text-align: center;
+    padding: 2rem;
+  }
+  .preview-placeholder svg { width: 40px; height: 40px; opacity: 0.4; }
+  .preview-placeholder span {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .preview-decoration {
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 20px,
+      rgba(107,124,74,0.04) 20px,
+      rgba(107,124,74,0.04) 21px
+    );
+  }
+
+  /* TEMPLATES */
+  #templates { background: var(--bg-card); }
+  .templates-intro {
+    max-width: 52ch;
+    color: var(--text-mid);
+    line-height: 1.75;
+    margin-top: 1rem;
+    margin-bottom: 3.5rem;
+    font-size: 1rem;
+  }
+  .templates-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+  .template-card {
+    background: var(--bg);
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .template-card::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 100%;
+    background: var(--olive);
+  }
+  .template-icon {
+    width: 44px; height: 44px;
+    background: rgba(107,124,74,0.1);
+    border-radius: 2px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1.5rem;
+  }
+  .template-icon svg { width: 22px; height: 22px; color: var(--olive); }
+  .template-name {
+    font-family: var(--serif);
+    font-size: 1.25rem;
+    font-weight: 400;
+    margin-bottom: 0.7rem;
+    color: var(--text);
+  }
+  .template-desc {
+    font-size: 0.87rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+    margin-bottom: 1.5rem;
+  }
+  .template-link {
+    font-size: 0.8rem; font-weight: 600;
+    color: var(--terra); text-decoration: none;
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    letter-spacing: 0.04em;
+    transition: gap 0.2s;
+  }
+  .template-link:hover { gap: 0.8rem; }
+
+  /* PROCESS */
+  #process {}
+  .process-intro {
+    max-width: 48ch;
+    color: var(--text-mid);
+    line-height: 1.75;
+    margin-top: 1rem;
+    margin-bottom: 5rem;
+  }
+  .process-track {
+    position: relative;
+    padding-bottom: 2rem;
+  }
+  .process-line {
+    position: absolute;
+    top: 22px; left: 0; right: 0;
+    height: 1px;
+    background: var(--olive);
+    opacity: 0.25;
+  }
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0;
+    position: relative;
+  }
+  .process-step {
+    display: flex; flex-direction: column; align-items: flex-start;
+    padding-right: 1.5rem;
+  }
+  .step-dot-wrap {
+    position: relative; margin-bottom: 1.8rem;
+  }
+  .step-num {
+    font-family: var(--serif);
+    font-size: 1rem;
+    color: var(--terra);
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1;
+    position: relative; z-index: 1;
+  }
+  .step-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--olive);
+    margin-top: 0.5rem;
+    position: relative;
+  }
+  .step-dot::before {
+    content: '';
+    position: absolute; inset: -4px;
+    border-radius: 50%;
+    border: 1px solid var(--olive);
+    opacity: 0.4;
+  }
+  .step-name {
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    font-weight: 400;
+    color: var(--text);
+    margin-bottom: 0.6rem;
+  }
+  .step-desc {
+    font-size: 0.8rem;
+    color: var(--text-mid);
+    line-height: 1.6;
+  }
+
+  /* CONTACT */
+  #contact {
+    background: var(--bg-dark);
+    color: #F5F0E8;
+  }
+  #contact .section-label { color: var(--terra); }
+  #contact h2 { color: #F5F0E8; }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+    margin-top: 3rem;
+  }
+  .contact-desc {
+    color: rgba(245,240,232,0.65);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    font-size: 1rem;
+  }
+  .contact-links { display: flex; flex-direction: column; gap: 1rem; }
+  .contact-link {
+    display: flex; align-items: center; gap: 1rem;
+    color: rgba(245,240,232,0.8);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+    padding: 1rem;
+    border: 1px solid rgba(245,240,232,0.1);
+  }
+  .contact-link:hover { color: #F5F0E8; border-color: rgba(245,240,232,0.3); }
+  .contact-link-label {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--terra);
+    display: block;
+    margin-bottom: 0.2rem;
+  }
+  .contact-right {
+    border-left: 1px solid rgba(245,240,232,0.1);
+    padding-left: 4rem;
+  }
+  .availability {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    font-size: 0.8rem;
+    color: rgba(245,240,232,0.65);
+    margin-bottom: 2rem;
+  }
+  .avail-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: #7EC88A;
+    flex-shrink: 0;
+    box-shadow: 0 0 0 3px rgba(126,200,138,0.25);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 3px rgba(126,200,138,0.25); }
+    50% { box-shadow: 0 0 0 6px rgba(126,200,138,0.1); }
+  }
+  .focus-areas h3 {
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: #F5F0E8;
+    margin-bottom: 1.2rem;
+  }
+  .focus-list {
+    list-style: none;
+    display: flex; flex-direction: column; gap: 0.7rem;
+  }
+  .focus-list li {
+    font-size: 0.88rem;
+    color: rgba(245,240,232,0.65);
+    display: flex; align-items: center; gap: 0.8rem;
+  }
+  .focus-list li::before {
+    content: '';
+    width: 16px; height: 1px;
+    background: var(--olive-lt);
+    flex-shrink: 0;
+  }
+
+  footer {
+    background: var(--bg-dark);
+    border-top: 1px solid rgba(245,240,232,0.06);
+    padding: 1.5rem 4rem;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  footer span {
+    font-size: 0.75rem;
+    color: rgba(245,240,232,0.3);
+    letter-spacing: 0.04em;
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { gap: 1.2rem; }
+    section { padding: 5rem 1.5rem; }
+    .hero-inner, .about-grid, .contact-grid, .templates-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .hero-stats { padding-left: 0; border-left: none; flex-direction: row; flex-wrap: wrap; gap: 1.5rem; }
+    .portfolio-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+    .work-item, .work-item:nth-child(even) { grid-template-columns: 1fr; }
+    .work-item:nth-child(even) .work-meta, .work-item:nth-child(even) .work-preview { order: unset; }
+    .process-steps { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+    .process-line { display: none; }
+    .contact-right { border-left: none; padding-left: 0; border-top: 1px solid rgba(245,240,232,0.1); padding-top: 3rem; }
+    footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="#">Kerstin</a>
+  <div class="nav-links">
+    <a href="#portfolio">Work</a>
+    <a href="#templates">Templates</a>
+    <a href="#process">Process</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow">Senior Instructional Designer</div>
+      <h1>Learning design that <em>changes</em> behaviour.</h1>
+      <p class="hero-desc">I build compliance, onboarding, and blended learning programmes for global organisations — grounded in instructional science, finished to a standard people actually want to engage with.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#portfolio">See my work</a>
+        <a class="btn btn-outline" href="#contact">Get in touch</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">10+</div>
+        <div class="stat-label">Years in L&D</div>
+        <div class="stat-sub">Instructional design & programme management</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">3</div>
+        <div class="stat-label">Languages</div>
+        <div class="stat-sub">German (native) · English (fluent) · Hungarian</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">MBA</div>
+        <div class="stat-label">With Distinction</div>
+        <div class="stat-sub">Plus Magister DaF & certified TestDaF examiner</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div>
+        <div class="section-label">About</div>
+        <h2>ID, LMS, compliance — and the pedagogy behind all of it.</h2>
+        <div class="about-tags">
+          <span class="tag">Storyline 360</span>
+          <span class="tag">Rise</span>
+          <span class="tag">LMS Implementation</span>
+          <span class="tag">Blended Learning</span>
+          <span class="tag">Compliance Training</span>
+          <span class="tag">Programme Management</span>
+          <span class="tag">ADDIE / SAM</span>
+          <span class="tag">TestDaF</span>
+          <span class="tag">DACH Markets</span>
+        </div>
+      </div>
+      <div class="about-text">
+        <p>I'm a Senior Instructional Designer with over ten years of experience building learning that works inside complex, regulated organisations — manufacturing, tech, professional services. My background combines academic rigour (Magister in German as a Foreign Language, MBA with distinction) with hands-on delivery in post-merger environments, LMS rollouts, and cross-functional stakeholder management.</p>
+        <p>I design in German and English, for DACH and international audiences. My sweet spot is compliance and onboarding: where clarity, legal accuracy, and learner engagement need to coexist — and usually don't, until someone fixes the design.</p>
+        <p>Based in Kecskemét, Hungary. Available for remote roles and freelance projects.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+  <div class="container">
+    <div class="portfolio-header">
+      <div>
+        <div class="section-label">Portfolio</div>
+        <h2>Selected work — <em>built for this.</em></h2>
+      </div>
+    </div>
+
+    <!-- Item 1 -->
+    <div class="work-item">
+      <div class="work-meta">
+        <div>
+          <div class="work-type">Storyline 360 · Compliance</div>
+          <div class="work-title">Code of Conduct: Decisions Under Pressure</div>
+          <p class="work-desc">A scenario-based compliance module for a fictional mid-size firm. Branching decisions, consequence feedback, and a final case study — designed to move beyond tick-box acknowledgement toward genuine behavioural reflection.</p>
+          <div class="work-tools">
+            <span class="tool-tag">Storyline 360</span>
+            <span class="tool-tag">Scenario Design</span>
+            <span class="tool-tag">Branching Logic</span>
+            <span class="tool-tag">GRC</span>
+          </div>
+        </div>
+        <a class="work-link" href="PLACEHOLDER_ARTICULATE_REVIEW_LINK_1" target="_blank">
+          View in Articulate Review
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+      <div class="work-preview">
+        <div class="preview-decoration"></div>
+        <div class="preview-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          <span>Screenshot coming soon</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Item 2 -->
+    <div class="work-item">
+      <div class="work-meta">
+        <div>
+          <div class="work-type">Storyline 360 · Creative</div>
+          <div class="work-title">Himmel & Hölle — A Learning Experience in Two Worlds</div>
+          <p class="work-desc">An unconventional compliance module structured as a Cootie Catcher interaction — learners choose paths through moral dilemmas, landing in either the "heaven" or "hell" scenario of a workplace situation. Designed to demonstrate creative instructional thinking alongside technical Storyline capability.</p>
+          <div class="work-tools">
+            <span class="tool-tag">Storyline 360</span>
+            <span class="tool-tag">Custom Interactions</span>
+            <span class="tool-tag">Narrative Design</span>
+            <span class="tool-tag">German</span>
+          </div>
+        </div>
+        <a class="work-link" href="PLACEHOLDER_ARTICULATE_REVIEW_LINK_2" target="_blank">
+          View in Articulate Review
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+      <div class="work-preview">
+        <div class="preview-decoration"></div>
+        <div class="preview-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          <span>Screenshot coming soon</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- TEMPLATES -->
+<section id="templates">
+  <div class="container">
+    <div class="section-label">Templates</div>
+    <h2>Ready-to-use design assets</h2>
+    <p class="templates-intro">Instructional and visual templates built for L&D teams who need a consistent, professional starting point — without starting from zero every time.</p>
+
+    <div class="templates-grid">
+      <div class="template-card">
+        <div class="template-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        </div>
+        <div class="template-name">Grobkonzept Template</div>
+        <p class="template-desc">A structured design brief template for L&D projects — covers learning goals, target audience, format decisions, and timeline in one clean document. Built for DACH stakeholders, bilingual-ready.</p>
+        <a class="template-link" href="PLACEHOLDER_TEMPLATE_LINK_1" target="_blank">
+          Download / View
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <div class="template-card">
+        <div class="template-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        </div>
+        <div class="template-name">Storyboard Frame Template</div>
+        <p class="template-desc">A slide-based storyboard template for eLearning development — one frame per screen, with fields for visual description, narration text, interactions, and developer notes.</p>
+        <a class="template-link" href="PLACEHOLDER_TEMPLATE_LINK_2" target="_blank">
+          Download / View
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="container">
+    <div class="section-label">How I work</div>
+    <h2>From brief to behaviour change</h2>
+    <p class="process-intro">A structured approach that doesn't disappear under deadline pressure. Each phase has a clear deliverable — so stakeholders know where they are, and I know what I'm building.</p>
+
+    <div class="process-track">
+      <div class="process-line"></div>
+      <div class="process-steps">
+
+        <div class="process-step">
+          <div class="step-dot-wrap">
+            <div class="step-num">01</div>
+            <div class="step-dot"></div>
+          </div>
+          <div class="step-name">Analyse</div>
+          <p class="step-desc">Stakeholder interviews, audience analysis, performance gap diagnosis. What actually needs to change — and why?</p>
+        </div>
+
+        <div class="process-step">
+          <div class="step-dot-wrap">
+            <div class="step-num">02</div>
+            <div class="step-dot"></div>
+          </div>
+          <div class="step-name">Design</div>
+          <p class="step-desc">Learning objectives, structure, format decisions. Grobkonzept signed off before a single slide is built.</p>
+        </div>
+
+        <div class="process-step">
+          <div class="step-dot-wrap">
+            <div class="step-num">03</div>
+            <div class="step-dot"></div>
+          </div>
+          <div class="step-name">Develop</div>
+          <p class="step-desc">Storyboard → prototype → full build in Storyline 360, Rise, or blended format. Stakeholder review in Articulate Review.</p>
+        </div>
+
+        <div class="process-step">
+          <div class="step-dot-wrap">
+            <div class="step-num">04</div>
+            <div class="step-dot"></div>
+          </div>
+          <div class="step-name">Implement</div>
+          <p class="step-desc">SCORM/xAPI packaging, LMS upload and testing, learner communications. I handle the handover — not just the handoff.</p>
+        </div>
+
+        <div class="process-step">
+          <div class="step-dot-wrap">
+            <div class="step-num">05</div>
+            <div class="step-dot"></div>
+          </div>
+          <div class="step-name">Evaluate</div>
+          <p class="step-desc">Kirkpatrick levels 1–3 where feasible. Completion rates, knowledge check data, and qualitative feedback to close the loop.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="section-label">Contact</div>
+    <h2>Let's build something that works.</h2>
+    <div class="contact-grid">
+      <div>
+        <p class="contact-desc">Open to Senior Instructional Designer and L&D Programme Manager roles — remote, DACH-focused or international. Also available for freelance projects: eLearning builds, LMS consulting, curriculum design.</p>
+        <div class="contact-links">
+          <a class="contact-link" href="https://www.linkedin.com/in/PLACEHOLDER" target="_blank">
+            <div>
+              <span class="contact-link-label">LinkedIn</span>
+              linkedin.com/in/PLACEHOLDER
+            </div>
+          </a>
+          <a class="contact-link" href="mailto:PLACEHOLDER@email.com">
+            <div>
+              <span class="contact-link-label">Email</span>
+              PLACEHOLDER@email.com
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="contact-right">
+        <div class="availability">
+          <div class="avail-dot"></div>
+          Available from August 2026
+        </div>
+        <div class="focus-areas">
+          <h3>Currently interested in</h3>
+          <ul class="focus-list">
+            <li>GRC & compliance learning design</li>
+            <li>Blended and hybrid programme architecture</li>
+            <li>LMS implementation and governance</li>
+            <li>DACH market / German-language content</li>
+            <li>eLearning freelance builds (Storyline, Rise)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>© 2026 Kerstin · Instructional Designer</span>
+  <span>Kecskemét, Hungary · Remote</span>
+</footer>
+
+</body>
+</html>
