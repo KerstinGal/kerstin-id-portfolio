@@ -79,10 +79,15 @@
 
   /* templates */
   .tpl{display:grid;grid-template-columns:1fr 1fr;gap:28px}
-  .tpl-card{background:var(--surface);border:1px solid var(--hair);border-radius:14px;padding:30px 30px 32px;display:flex;flex-direction:column}
-  .tpl-card h3{font-family:var(--disp);font-weight:600;font-size:1.3rem;margin-bottom:14px}
-  .tpl-card p{color:var(--muted);font-size:1rem;margin-bottom:14px}
-  .tpl-card .note{font-style:italic;color:var(--ink);font-size:.95rem;margin-bottom:22px}
+  .tpl-card{background:var(--surface);border:1px solid var(--hair);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:transform .18s,box-shadow .18s}
+  .tpl-card:hover{transform:translateY(-3px);box-shadow:0 14px 34px -18px rgba(28,26,23,.35)}
+  .tpl-img{border-bottom:1px solid var(--hair);background:#EDE7DC;line-height:0}
+  .tpl-img img{width:100%;height:auto;display:block}
+  .tpl-body{padding:26px 28px 30px;display:flex;flex-direction:column;flex:1}
+  .tpl-tag{font-family:var(--disp);font-size:11.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--terra);margin-bottom:11px}
+  .tpl-card h3{font-family:var(--disp);font-weight:600;font-size:1.3rem;margin-bottom:13px}
+  .tpl-card p{color:var(--muted);font-size:.99rem;margin-bottom:13px}
+  .tpl-card .note{font-style:italic;color:var(--ink);font-size:.94rem;margin-bottom:22px}
   .dl{margin-top:auto;font-family:var(--disp);font-weight:600;font-size:14px;color:var(--terra);display:inline-flex;align-items:center;gap:7px;transition:gap .15s}
   .dl:hover{gap:12px}
 
@@ -231,22 +236,30 @@
   <div class="wrap">
     <div class="kicker">Templates</div>
     <h2>The working documents behind the builds.</h2>
-    <p class="section-intro">The same ones I use on real projects — not decoration, actual tools.</p>
+    <p class="section-intro">The same ones I use on real projects — see the thinking, then take the file.</p>
     <div class="tpl">
 
-      <div class="tpl-card">
-        <h3>Rough Concept (Word)</h3>
-        <p>A high-level design brief for instructor-led training, virtual or in-person. It forces every learning objective into an observable form — behaviour, condition, criterion — so "the participants will understand X" never makes it through. SME comments are built in, look &amp; feel stays light, and transfer and success measurement each get their own space.</p>
-        <div class="note">Rigorous where it matters, quick where it doesn't.</div>
-        <a class="dl" href="Rough-Concept_Template.pdf" target="_blank" rel="noopener">View the template →</a>
-      </div>
+      <article class="tpl-card">
+        <div class="tpl-img"><img src="assets/preview-rough-concept.jpg" alt="Rough Concept template — a Word document with a branded header and structured sections for project frame, starting point, and target audience"></div>
+        <div class="tpl-body">
+          <div class="tpl-tag">Word · instructor-led</div>
+          <h3>Rough Concept</h3>
+          <p>A high-level design brief for virtual or in-person training. It forces every learning objective into an observable form — behaviour, condition, criterion — so "the participants will understand X" never makes it through. SME comments built in, look &amp; feel kept light, transfer and measurement each given their own space.</p>
+          <div class="note">Rigorous where it matters, quick where it doesn't.</div>
+          <a class="dl" href="Rough-Concept_Template.pdf" target="_blank" rel="noopener">View the template (PDF) →</a>
+        </div>
+      </article>
 
-      <div class="tpl-card">
-        <h3>E-Learning Storyboard (Excel)</h3>
-        <p>A screen-by-screen storyboard. On-screen text and audio narration sit in separate columns, on purpose: reading and hearing the same words at once splits attention and lowers retention, so the format won't let you do it. Accessibility, branching logic, and knowledge checks each have their place.</p>
-        <div class="note">Every column is a design decision, not just a field to fill.</div>
-        <a class="dl" href="E-Learning-Storyboard_Template.xlsx">Download the template →</a>
-      </div>
+      <article class="tpl-card">
+        <div class="tpl-img"><img src="assets/preview-storyboard.jpg" alt="E-Learning Storyboard template — a spreadsheet grid with separate columns for on-screen text and audio narration, interactions, accessibility, and review status"></div>
+        <div class="tpl-body">
+          <div class="tpl-tag">Excel · e-learning</div>
+          <h3>E-Learning Storyboard</h3>
+          <p>A screen-by-screen storyboard. On-screen text and audio narration sit in separate columns, on purpose: reading and hearing the same words at once splits attention and lowers retention, so the format won't let you do it. Accessibility, branching logic, and knowledge checks each have their place.</p>
+          <div class="note">Every column is a design decision, not just a field to fill.</div>
+          <a class="dl" href="E-Learning-Storyboard_Template.xlsx">Download the template (Excel) →</a>
+        </div>
+      </article>
 
     </div>
   </div>
