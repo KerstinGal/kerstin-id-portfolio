@@ -66,6 +66,16 @@
   .card:hover{transform:translateY(-3px);box-shadow:0 14px 34px -18px rgba(28,26,23,.35)}
   .card-img{height:210px;overflow:hidden;background:var(--paper);border-bottom:1px solid var(--hair)}
   .card-img img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+
+  /* text-based covers for pieces without a screenshot yet */
+  .cover{height:210px;border-bottom:1px solid var(--hair);display:flex;flex-direction:column;justify-content:center;padding:0 32px;color:#fff}
+  .cover-dark{background:var(--ink)}
+  .cover-teal{background:var(--teal-dark)}
+  .cover .cov-eyebrow{font-family:var(--disp);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px;opacity:.9}
+  .cover-dark .cov-eyebrow{color:var(--terra)}
+  .cover-teal .cov-eyebrow{color:#F4E9DC}
+  .cover .cov-line{font-family:var(--disp);font-weight:600;font-size:1.28rem;line-height:1.28;letter-spacing:-.01em}
+
   .card-body{padding:26px 26px 28px;display:flex;flex-direction:column;flex:1}
   .card-tag{font-family:var(--disp);font-size:11.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--terra);margin-bottom:12px}
   .card h3{font-family:var(--disp);font-weight:600;font-size:1.4rem;letter-spacing:-.01em;line-height:1.15}
@@ -141,7 +151,7 @@
   <div class="wrap">
     <div class="hero-grid">
       <div>
-        <div class="eyebrow">Senior Instructional Designer · DACH &amp; international</div>
+        <div class="eyebrow">Freelance Instructional Designer · DACH &amp; International</div>
         <h1>Training worth the time it asks for.</h1>
         <p class="lead">I design e-learning and blended programmes for complex, regulated organisations — compliance, technical topics, and the subjects most teams struggle to make engaging. Evidence-based, and built to hold up in front of auditors, stakeholders, and the people who have to use the training.</p>
         <div class="btns">
@@ -194,9 +204,45 @@
 <section id="work">
   <div class="wrap">
     <div class="kicker">Selected work</div>
-    <h2>Two builds, two very different registers.</h2>
-    <p class="section-intro">Chosen to show range — the same rigour applied to a restrained compliance module and a playful creative one.</p>
+    <h2>From programme design to finished build.</h2>
+    <p class="section-intro">Four pieces, chosen to show range — a full curriculum design, one of its modules actually built, and two very different production registers besides.</p>
     <div class="cards">
+
+      <article class="card">
+        <div class="cover cover-dark">
+          <span class="cov-eyebrow">Curriculum Design · Self-directed sample</span>
+          <span class="cov-line">Completion Isn't Competency. Judgment Is.</span>
+        </div>
+        <div class="card-body">
+          <div class="card-tag">Curriculum Design · AI Literacy &amp; Compliance</div>
+          <h3>Built Backward From the Decision</h3>
+          <div class="subtitle">A 5-module programme design, not a delivered client project</div>
+          <p>Most AI-literacy training explains what the tool does. This curriculum is built backward from the moment that actually matters — when someone has to decide whether to trust an AI-drafted output under real time pressure. Five modules, each anchored to a decision rather than a topic.</p>
+          <div class="why">
+            <span class="why-lab">Why it's not a checklist</span>
+            <p>A completion badge proves someone clicked through. It doesn't prove judgment. So the assessment lives inside the learning environment itself — scenario-based, automatically scored — rather than relying on managers reviewing real work, which doesn't scale and raises its own compliance questions in Germany.</p>
+          </div>
+          <a class="card-link" href="Curriculum_Design_Sample_KG.pdf" target="_blank" rel="noopener">View the curriculum (PDF) →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="cover cover-teal">
+          <span class="cov-eyebrow">Rise 360 · Companion module</span>
+          <span class="cov-line">"It got it wrong confidently — that's why it's dangerous."</span>
+        </div>
+        <div class="card-body">
+          <div class="card-tag">Rise 360 · Branching scenario</div>
+          <h3>Knowing When to Push Back</h3>
+          <div class="subtitle">Module 3 of the curriculum above, actually built</div>
+          <p>An AI drafting tool has produced a confident, fluent, and factually wrong client update. The learner decides what to do with it — and every choice, including the reasonable-sounding ones, gets feedback built around real judgment, not a binary right or wrong.</p>
+          <div class="why">
+            <span class="why-lab">Why it pairs with the curriculum</span>
+            <p>The PDF shows how I design a programme. This shows one module of it actually produced — same thinking, carried through to a finished, clickable build.</p>
+          </div>
+          <a class="card-link" href="push-back-module/" target="_blank" rel="noopener">Open the module →</a>
+        </div>
+      </article>
 
       <article class="card">
         <div class="card-img"><img src="assets/the-close.jpg" alt="The Close module — a decision screen asking what to do about a client invitation, with three options"></div>
@@ -324,9 +370,9 @@
     <div class="kicker">Contact</div>
     <h2>Get in touch.</h2>
     <div class="contact-box">
-      <p>Open to senior instructional design and L&amp;D programme roles — remote, DACH or international — and select freelance work.</p>
-      <span class="avail">Available from August 2026</span>
-      <a class="btn btn-primary" href="https://www.linkedin.com/in/kerstingal" target="_blank" rel="noopener">Connect on LinkedIn</a>
+      <p>I take on instructional design and L&amp;D projects for clients across DACH and internationally — from a single e-learning module to a full programme rollout, remote-first.</p>
+      <span class="avail">Currently taking on new projects</span>
+      <a class="btn btn-primary" href="https://www.linkedin.com/in/kerstingal" target="_blank" rel="noopener">Get in touch on LinkedIn</a>
     </div>
   </div>
 </section>
