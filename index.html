@@ -6,134 +6,132 @@
 <title>Kerstin Gal — Instructional Designer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
     --paper:#FBF8F2; --surface:#FFFFFF; --ink:#1C1A17; --muted:#5F5A50;
     --terra:#D4552B; --terra-dark:#B8431F; --teal:#12746A; --teal-dark:#0E5C54;
+    --rust:#C97A2B; --olive:#4B5E3A; --olive-dark:#3C4A2E; --plum:#3B2E59; --plum-dark:#2E2444;
     --hair:#E7E1D5; --hair-strong:#D8D1C2;
     --sans:'Inter',system-ui,sans-serif; --disp:'Fraunces',Georgia,serif;
-    --wrap:860px; --side-w:224px;
+    --wrap:900px;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
-  body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased}
+  body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
   a{color:inherit;text-decoration:none}
-  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 32px}
-  section{padding:76px 0;border-top:1px solid var(--hair)}
+  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 28px}
+  section{padding:56px 0}
 
-  /* fold mark — small recurring motif, used sparingly */
   .fold{display:inline-block;flex:none}
-  .fold path{fill-opacity:1}
 
-  /* sidebar nav */
-  .side{position:fixed;top:0;left:0;bottom:0;width:var(--side-w);padding:40px 30px;display:flex;flex-direction:column;border-right:1px solid var(--hair);background:var(--paper);z-index:50;overflow-y:auto}
-  .brand{display:flex;align-items:center;gap:10px;font-family:var(--disp);font-weight:600;font-size:19px;letter-spacing:-.01em;margin-bottom:52px}
-  .navlinks{display:flex;flex-direction:column;gap:18px;font-size:13.5px;font-weight:500;letter-spacing:.02em}
-  .navlinks a{color:var(--muted);transition:color .15s;padding-left:14px;border-left:2px solid transparent}
-  .navlinks a:hover{color:var(--terra);border-left-color:var(--terra)}
-  .side-foot{margin-top:auto;font-size:12px;color:var(--muted);padding-top:24px;border-top:1px solid var(--hair)}
+  /* top nav */
+  header{position:sticky;top:0;z-index:50;background:rgba(251,248,242,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--hair)}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 28px;max-width:var(--wrap);margin:0 auto}
+  .brand{display:flex;align-items:center;gap:9px;font-family:var(--disp);font-weight:600;font-size:18px;letter-spacing:-.01em}
+  .navlinks{display:flex;gap:22px;font-size:13px;font-weight:600;letter-spacing:.02em}
+  .navlinks a{color:var(--muted);transition:color .15s}
+  .navlinks a:hover{color:var(--terra)}
 
-  main{margin-left:var(--side-w)}
-
-  /* hero */
-  .hero{padding:84px 0 76px}
-  .eyebrow{font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);display:flex;align-items:center;gap:10px;margin-bottom:28px}
-  h1{font-family:var(--disp);font-weight:600;font-style:italic;font-size:clamp(2.3rem,4.6vw,3.4rem);line-height:1.12;letter-spacing:-.01em;margin-bottom:24px;max-width:15ch}
-  .lead{font-size:1.14rem;color:var(--muted);max-width:52ch;margin-bottom:36px}
-  .btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:52px}
-  .btn{font-family:var(--sans);font-weight:600;font-size:14px;padding:12px 24px;border-radius:999px;transition:.15s;cursor:pointer;display:inline-block}
+  /* hero — compact */
+  .hero{padding:52px 0 44px}
+  .eyebrow{font-family:var(--sans);font-size:12.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--teal);display:flex;align-items:center;gap:9px;margin-bottom:18px}
+  h1{font-family:var(--disp);font-weight:600;font-style:italic;font-size:clamp(2rem,4.4vw,3rem);line-height:1.1;letter-spacing:-.01em;margin-bottom:16px;max-width:16ch}
+  .lead{font-size:1.08rem;color:var(--muted);max-width:56ch;margin-bottom:26px}
+  .btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:34px}
+  .btn{font-family:var(--sans);font-weight:600;font-size:14px;padding:11px 22px;border-radius:999px;transition:.15s;cursor:pointer;display:inline-block;border:1.5px solid transparent}
   .btn-primary{background:var(--terra);color:#fff}
   .btn-primary:hover{background:var(--terra-dark)}
-  .btn-ghost{border:1.5px solid var(--hair-strong);color:var(--ink)}
+  .btn-ghost{border-color:var(--hair-strong);color:var(--ink)}
   .btn-ghost:hover{border-color:var(--teal);color:var(--teal)}
 
-  .stats{display:flex;gap:44px;flex-wrap:wrap;padding-top:36px;border-top:1px solid var(--hair)}
-  .stat .num{font-family:var(--disp);font-weight:600;font-size:2.1rem;line-height:1;color:var(--terra);letter-spacing:-.01em}
-  .stat .lab{font-family:var(--sans);font-size:11.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--ink);margin:7px 0 2px}
-  .stat .sub{font-size:13.5px;color:var(--muted)}
+  .stats{display:flex;gap:36px;flex-wrap:wrap;padding-top:24px;border-top:1px solid var(--hair)}
+  .stat .num{font-family:var(--disp);font-weight:700;font-size:1.9rem;line-height:1;color:var(--terra)}
+  .stat .lab{font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;margin:6px 0 2px}
+  .stat .sub{font-size:13px;color:var(--muted)}
 
-  /* section heads */
-  .kicker{font-family:var(--sans);font-size:12.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-bottom:14px}
-  h2{font-family:var(--disp);font-weight:600;font-style:italic;font-size:clamp(1.6rem,3vw,2.1rem);line-height:1.18;letter-spacing:-.01em;margin-bottom:18px;max-width:20ch}
-  .section-intro{font-size:1.04rem;color:var(--muted);max-width:56ch;margin-bottom:8px}
+  /* colored section blocks */
+  .sec{padding:60px 0}
+  .sec-paper{background:var(--paper);color:var(--ink)}
+  .sec-terra{background:var(--terra);color:#fff}
+  .sec-olive{background:var(--olive);color:#fff}
+  .sec-ink{background:var(--ink);color:var(--paper)}
+
+  .kicker{font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;opacity:.75;margin-bottom:12px}
+  h2{font-family:var(--disp);font-weight:600;font-style:italic;font-size:clamp(1.5rem,2.8vw,2rem);line-height:1.18;letter-spacing:-.01em;margin-bottom:14px;max-width:20ch}
+  .section-intro{font-size:1rem;opacity:.9;max-width:56ch;margin-bottom:8px}
+  .on-color .tag{border-color:rgba(255,255,255,.4);color:#fff}
+  .on-color .why{border-left-color:rgba(28,26,23,.18)}
 
   /* about */
-  .about p{max-width:62ch;color:var(--muted);margin-bottom:18px;font-size:1.04rem}
-  .about p strong{color:var(--ink);font-weight:600}
-  .tags{display:flex;flex-wrap:wrap;gap:9px;margin-top:28px}
-  .personal{font-style:italic;color:var(--muted);font-size:.97rem;margin-top:26px;padding-top:22px;border-top:1px dashed var(--hair-strong);max-width:62ch}
-  .tag{font-family:var(--sans);font-size:12.5px;font-weight:500;padding:6px 13px;border:1px solid var(--hair-strong);border-radius:999px;color:var(--muted)}
+  .about p{max-width:62ch;margin-bottom:14px;font-size:1.01rem;opacity:.95}
+  .about p strong{font-weight:700}
+  .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+  .tag{font-family:var(--sans);font-size:12px;font-weight:500;padding:5px 12px;border:1px solid var(--hair-strong);border-radius:999px}
+  .personal{font-style:italic;font-size:.95rem;margin-top:20px;padding-top:18px;border-top:1px dashed rgba(255,255,255,.3);max-width:62ch;opacity:.9}
 
-  /* selected work — editorial rows, alternating */
-  .piece{display:grid;grid-template-columns:1fr 1.15fr;gap:44px;padding:48px 0;border-top:1px solid var(--hair);align-items:center}
-  .piece:first-child{border-top:none;padding-top:28px}
-  .piece-media{order:1}
-  .piece-text{order:2}
-  .piece:nth-child(even) .piece-media{order:2}
-  .piece:nth-child(even) .piece-text{order:1}
-  .piece-media img{width:100%;display:block;border:1px solid var(--hair)}
-  .quote-panel{border:1px solid var(--hair-strong);background:var(--surface);padding:34px 30px;min-height:190px;display:flex;flex-direction:column;justify-content:center;border-left:3px solid var(--terra)}
-  .piece:nth-child(even) .quote-panel{border-left-color:var(--teal)}
-  .quote-eyebrow{font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
-  .quote-line{font-family:var(--disp);font-style:italic;font-weight:500;font-size:1.3rem;line-height:1.3}
+  /* work — tabbed, compact */
+  .worktabs{display:flex;flex-wrap:wrap;gap:8px;margin:24px 0 24px}
+  .worktab{font-family:var(--sans);font-size:13px;font-weight:600;padding:9px 16px;border-radius:999px;border:1.5px solid rgba(255,255,255,.35);color:#fff;opacity:.72;cursor:pointer;background:transparent;transition:.15s}
+  .worktab:hover{opacity:1}
+  .worktab.active{opacity:1;background:#fff;color:var(--ink);border-color:#fff}
+  .panel{display:none;background:var(--surface);color:var(--ink);border-radius:18px;padding:30px 30px 32px;box-shadow:0 20px 50px -24px rgba(0,0,0,.45)}
+  .panel.active{display:grid;grid-template-columns:1fr 1.15fr;gap:32px;align-items:stretch}
+  .panel-media{display:flex}
+  .panel-media img{width:100%;display:block;border-radius:10px;align-self:flex-start}
+  .quote-panel{width:100%;border:1px solid var(--hair-strong);border-radius:10px;background:var(--paper);padding:32px 28px;display:flex;flex-direction:column;justify-content:center;border-left:3px solid var(--terra)}
+  .quote-eyebrow{font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+  .quote-line{font-family:var(--disp);font-style:italic;font-weight:500;font-size:1.32rem;line-height:1.35;color:var(--ink)}
 
-  .piece-tag{font-family:var(--sans);font-size:11.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--terra);margin-bottom:10px}
-  .piece h3{font-family:var(--disp);font-weight:600;font-size:1.44rem;letter-spacing:-.005em;line-height:1.2;margin-bottom:4px}
-  .piece .subtitle{color:var(--teal);font-weight:500;font-size:.97rem;margin-bottom:14px}
-  .piece p.desc{color:var(--muted);font-size:.99rem;margin-bottom:16px}
-  .why{border-left:2px solid var(--hair-strong);padding:2px 0 2px 16px;margin:4px 0 18px}
-  .why .why-lab{font-family:var(--sans);font-size:11.5px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--ink);display:block;margin-bottom:5px}
-  .why p{font-size:.95rem;margin:0;color:var(--muted)}
-  .piece-link{font-family:var(--sans);font-weight:600;font-size:14px;color:var(--teal);display:inline-flex;align-items:center;gap:7px;transition:gap .15s,color .15s}
-  .piece-link:hover{gap:12px;color:var(--teal-dark)}
+  .piece-tag{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--terra);margin-bottom:8px}
+  .panel h3{font-family:var(--disp);font-weight:600;font-size:1.32rem;line-height:1.18;margin-bottom:3px}
+  .panel .subtitle{color:var(--teal);font-weight:600;font-size:.93rem;margin-bottom:12px}
+  .panel p.desc{color:var(--muted);font-size:.95rem;margin-bottom:14px}
+  .why{border-left:2px solid var(--hair-strong);padding:2px 0 2px 14px;margin:4px 0 16px}
+  .why .why-lab{font-size:11px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:var(--ink);display:block;margin-bottom:4px}
+  .why p{font-size:.9rem;margin:0;color:var(--muted)}
+  .piece-link{font-family:var(--sans);font-weight:700;font-size:13.5px;color:var(--teal);display:inline-flex;align-items:center;gap:6px}
+  .piece-link:hover{color:var(--teal-dark)}
 
   /* templates */
-  .tpl{display:grid;grid-template-columns:1fr 1fr;gap:36px;margin-top:36px}
-  .tpl-card{display:flex;flex-direction:column}
-  .tpl-img{border:1px solid var(--hair);line-height:0;margin-bottom:20px}
+  .tpl{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:22px}
+  .tpl-card{background:var(--surface);color:var(--ink);border-radius:16px;padding:22px 22px 26px;display:flex;flex-direction:column}
+  .tpl-img{border-radius:10px;overflow:hidden;line-height:0;margin-bottom:16px}
   .tpl-img img{width:100%;height:auto;display:block}
-  .tpl-tag{font-family:var(--sans);font-size:11.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--terra);margin-bottom:10px}
-  .tpl-card h3{font-family:var(--disp);font-weight:600;font-size:1.26rem;margin-bottom:12px}
-  .tpl-card p{color:var(--muted);font-size:.99rem;margin-bottom:12px}
-  .tpl-card .note{font-style:italic;color:var(--ink);font-size:.93rem;margin-bottom:20px;padding-top:12px;border-top:1px dashed var(--hair-strong)}
-  .dl{margin-top:auto;font-family:var(--sans);font-weight:600;font-size:14px;color:var(--terra);display:inline-flex;align-items:center;gap:7px;transition:gap .15s}
-  .dl:hover{gap:12px}
+  .tpl-tag{font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--rust);margin-bottom:8px}
+  .tpl-card h3{font-family:var(--disp);font-weight:600;font-size:1.18rem;margin-bottom:9px}
+  .tpl-card p{color:var(--muted);font-size:.94rem;margin-bottom:10px}
+  .tpl-card .note{font-style:italic;color:var(--ink);font-size:.89rem;margin-bottom:16px;padding-top:10px;border-top:1px dashed var(--hair-strong)}
+  .dl{margin-top:auto;font-weight:700;font-size:13.5px;color:var(--rust);display:inline-flex;align-items:center;gap:6px}
 
-  /* process */
-  .steps{display:flex;flex-direction:column;gap:0;margin-top:8px}
-  .step{display:grid;grid-template-columns:62px 1fr;gap:24px;padding:24px 0;border-top:1px solid var(--hair)}
-  .step:first-child{border-top:none}
-  .step .no{font-family:var(--disp);font-style:italic;font-weight:600;font-size:1.5rem;color:var(--terra);line-height:1}
-  .step h4{font-family:var(--disp);font-weight:600;font-size:1.14rem;margin-bottom:6px;letter-spacing:-.005em}
-  .step p{color:var(--muted);font-size:1rem;max-width:62ch}
-  .step .deliv{display:inline-block;margin-top:9px;font-family:var(--sans);font-size:11.5px;font-weight:600;letter-spacing:.03em;color:var(--teal)}
+  /* process — two-column compact */
+  .steps{display:grid;grid-template-columns:1fr 1fr;gap:0 32px;margin-top:20px}
+  .step{display:grid;grid-template-columns:44px 1fr;gap:16px;padding:16px 0;border-top:1px solid rgba(255,255,255,.18)}
+  .step .no{font-family:var(--disp);font-style:italic;font-weight:700;font-size:1.3rem;line-height:1;opacity:.85}
+  .step h4{font-family:var(--disp);font-weight:600;font-size:1.02rem;margin-bottom:4px}
+  .step p{font-size:.91rem;opacity:.9;max-width:42ch}
+  .step .deliv{display:inline-block;margin-top:6px;font-size:10.5px;font-weight:700;letter-spacing:.03em;opacity:.75}
 
   /* contact */
-  .contact-box{display:flex;flex-direction:column;align-items:flex-start;gap:22px}
-  .contact-box p{font-size:1.08rem;color:var(--muted);max-width:52ch}
-  .avail{font-family:var(--sans);font-size:12.5px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--teal);display:inline-flex;align-items:center;gap:9px}
-  .avail::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--teal)}
+  .contact-box{display:flex;flex-direction:column;align-items:flex-start;gap:18px}
+  .contact-box p{font-size:1.03rem;opacity:.92;max-width:52ch}
+  .avail{font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;display:inline-flex;align-items:center;gap:8px}
+  .avail::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
 
-  footer{border-top:1px solid var(--hair);padding:30px 0;font-size:13px;color:var(--muted)}
-  .foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+  footer{padding:24px 0;font-size:12.5px;color:var(--muted);background:var(--paper)}
+  .foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;max-width:var(--wrap);margin:0 auto;padding:0 28px}
 
-  @media(max-width:900px){
-    .side{position:static;width:auto;height:auto;flex-direction:row;align-items:center;justify-content:space-between;padding:18px 24px;border-right:none;border-bottom:1px solid var(--hair);overflow-x:auto}
-    .brand{margin-bottom:0}
-    .navlinks{flex-direction:row;gap:20px}
-    .navlinks a{padding-left:0;border-left:none;border-bottom:2px solid transparent}
-    .navlinks a:hover{border-left:none;border-bottom-color:var(--terra)}
-    .side-foot{display:none}
-    main{margin-left:0}
-  }
-  @media(max-width:700px){
-    .piece,.piece:nth-child(even){grid-template-columns:1fr}
-    .piece-media,.piece:nth-child(even) .piece-media{order:1}
-    .piece-text,.piece:nth-child(even) .piece-text{order:2}
+  @media(max-width:760px){
+    .panel.active{grid-template-columns:1fr}
     .tpl{grid-template-columns:1fr}
-    .stats{gap:28px}
-    section{padding:56px 0}
+    .steps{grid-template-columns:1fr}
+    .stats{gap:24px}
+    .sec,.hero{padding:40px 0}
+    .worktabs{gap:7px}
+    .worktab{padding:8px 13px;font-size:12.5px}
+  }
+  @media(max-width:540px){
+    .navlinks{gap:14px;font-size:11.5px}
   }
 </style>
 </head>
@@ -143,27 +141,28 @@
   <symbol id="fold-mark" viewBox="0 0 32 32">
     <path d="M16 2 L30 16 L16 16 Z" fill="var(--terra)"/>
     <path d="M16 2 L2 16 L16 16 Z" fill="var(--teal)"/>
-    <path d="M16 30 L30 16 L16 16 Z" fill="#E7C9A8"/>
-    <path d="M16 30 L2 16 L16 16 Z" fill="var(--terra-dark)"/>
+    <path d="M16 30 L30 16 L16 16 Z" fill="var(--rust)"/>
+    <path d="M16 30 L2 16 L16 16 Z" fill="var(--plum)"/>
   </symbol>
 </svg>
 
-<nav class="side">
-  <div class="brand"><svg class="fold" width="20" height="20"><use href="#fold-mark"/></svg> Kerstin Gal</div>
-  <div class="navlinks">
-    <a href="#work">Work</a>
-    <a href="#templates">Templates</a>
-    <a href="#process">Process</a>
-    <a href="#contact">Contact</a>
-  </div>
-  <div class="side-foot">Freelance Instructional<br>Designer · DACH &amp; International</div>
-</nav>
+<header>
+  <nav class="nav">
+    <div class="brand"><svg class="fold" width="18" height="18"><use href="#fold-mark"/></svg> Kerstin Gal</div>
+    <div class="navlinks">
+      <a href="#work">Work</a>
+      <a href="#templates">Templates</a>
+      <a href="#process">Process</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+</header>
 
 <main>
 
-<section class="hero" style="border-top:none">
+<section class="hero">
   <div class="wrap">
-    <div class="eyebrow"><svg class="fold" width="16" height="16"><use href="#fold-mark"/></svg> Freelance Instructional Designer</div>
+    <div class="eyebrow"><svg class="fold" width="15" height="15"><use href="#fold-mark"/></svg> Freelance Instructional Designer · DACH &amp; International</div>
     <h1>Training worth the time it asks for.</h1>
     <p class="lead">I design e-learning and blended programmes for complex, regulated organisations — compliance, technical topics, and the subjects most teams dread putting in front of a live audience. Evidence-based, auditor-proof, and built so the people who actually have to sit through it don't immediately reach for their phone.</p>
     <div class="btns">
@@ -174,29 +173,29 @@
       <div class="stat">
         <div class="num">10+</div>
         <div class="lab">Years in L&amp;D</div>
-        <div class="sub">Instructional design &amp; programme management</div>
+        <div class="sub">Instructional design &amp; programme mgmt.</div>
       </div>
       <div class="stat">
         <div class="num">3</div>
         <div class="lab">Languages</div>
-        <div class="sub">German (native) · English (fluent) · Hungarian</div>
+        <div class="sub">German · English · Hungarian</div>
       </div>
       <div class="stat">
         <div class="num">MBA</div>
         <div class="lab">With distinction</div>
-        <div class="sub">Plus Magister DaF &amp; certified TestDaF examiner</div>
+        <div class="sub">Plus Magister DaF &amp; TestDaF examiner</div>
       </div>
     </div>
   </div>
 </section>
 
-<section id="about" class="about">
+<section id="about" class="sec sec-terra on-color">
   <div class="wrap">
     <div class="kicker">About</div>
     <h2>Ten years of making complex topics learnable.</h2>
     <p>I'm a senior instructional designer with over ten years in L&amp;D, mostly inside complex, regulated organisations — manufacturing, tech, and professional services, including post-merger environments and full LMS rollouts.</p>
     <p>My background pairs academic grounding — a Magister in German as a Foreign Language, an MBA with distinction, and certification as a TestDaF examiner — with the practical side of the job: storyboarding, building in Storyline and Rise, packaging for the LMS, and keeping stakeholders aligned from brief to launch.</p>
-    <p>I work in German and English, for DACH and international audiences. What I actually care about, underneath all the methodology: <strong>is it clear what should change, can we tell afterwards whether it did, and did I make something people would rather open than avoid?</strong> Two out of three is a passing grade. Three out of three is the job done right.</p>
+    <p><strong>Is it clear what should change, can we tell afterwards whether it did, and did I make something people would rather open than avoid?</strong> Two out of three is a passing grade. Three out of three is the job done right.</p>
     <div class="tags">
       <span class="tag">Storyline 360</span>
       <span class="tag">Rise</span>
@@ -212,106 +211,114 @@
   </div>
 </section>
 
-<section id="work">
+<section id="work" class="sec sec-ink on-color">
   <div class="wrap">
     <div class="kicker">Selected work</div>
     <h2>From programme design to finished build.</h2>
-    <p class="section-intro">Five pieces, chosen to show range — a full curriculum design, one of its modules actually built, and two very different production registers besides.</p>
+    <p class="section-intro">Five pieces, chosen to show range — click through.</p>
 
-    <article class="piece">
-      <div class="piece-media">
+    <div class="worktabs">
+      <button class="worktab active" data-panel="p3">The Close</button>
+      <button class="worktab" data-panel="p2">Push Back</button>
+      <button class="worktab" data-panel="p4">Fortune Teller</button>
+      <button class="worktab" data-panel="p1">Built Backward</button>
+      <button class="worktab" data-panel="p5">Localization</button>
+    </div>
+
+    <div class="panel" id="p1">
+      <div class="panel-media">
         <div class="quote-panel">
           <span class="quote-eyebrow">Curriculum Design · Self-directed sample</span>
           <span class="quote-line">Completion isn't competency. Judgment is.</span>
         </div>
       </div>
-      <div class="piece-text">
+      <div>
         <div class="piece-tag">Curriculum Design · AI Literacy &amp; Compliance</div>
         <h3>Built Backward From the Decision</h3>
         <div class="subtitle">A 5-module programme design, not a delivered client project</div>
-        <p class="desc">Most AI-literacy training explains what the tool does. This curriculum is built backward from the moment that actually matters — when someone has to decide whether to trust an AI-drafted output under real time pressure. Five modules, each anchored to a decision rather than a topic.</p>
+        <p class="desc">Most AI-literacy training explains what the tool does. This curriculum is built backward from the moment that actually matters — when someone has to decide whether to trust an AI-drafted output under real time pressure.</p>
         <div class="why">
           <span class="why-lab">The catch</span>
-          <p>A completion badge proves someone clicked Next. It doesn't prove they'd make the right call at 4pm on a Friday with a client waiting. So the assessment lives inside the environment itself — scenario-based, scored automatically — instead of relying on a manager reviewing real work afterwards, which doesn't scale and opens its own can of compliance worms in Germany.</p>
+          <p>A completion badge proves someone clicked Next. It doesn't prove they'd make the right call at 4pm on a Friday with a client waiting. So the assessment lives inside the environment itself — scenario-based, scored automatically.</p>
         </div>
         <a class="piece-link" href="Curriculum_Design_Sample_KG.pdf" target="_blank" rel="noopener">View the curriculum (PDF) →</a>
       </div>
-    </article>
+    </div>
 
-    <article class="piece">
-      <div class="piece-media">
+    <div class="panel" id="p2">
+      <div class="panel-media">
         <div class="quote-panel">
           <span class="quote-eyebrow">Rise 360 · Companion module</span>
           <span class="quote-line">"It got it wrong confidently — that's why it's dangerous."</span>
         </div>
       </div>
-      <div class="piece-text">
+      <div>
         <div class="piece-tag">Rise 360 · Branching scenario</div>
         <h3>Knowing When to Push Back</h3>
         <div class="subtitle">Module 3 of the curriculum above, actually built</div>
-        <p class="desc">An AI drafting tool has produced a confident, fluent, and factually wrong client update. The learner decides what to do with it — and every choice, including the reasonable-sounding ones, gets feedback built around real judgment, not a binary right or wrong.</p>
+        <p class="desc">An AI drafting tool has produced a confident, fluent, and factually wrong client update. The learner decides what to do with it — every choice gets feedback built around real judgment, not a binary right or wrong.</p>
         <div class="why">
           <span class="why-lab">The pairing</span>
           <p>The PDF is the blueprint. This is the room you actually walk into — same thinking, now with buttons that do things.</p>
         </div>
         <a class="piece-link" href="push-back-module/" target="_blank" rel="noopener">Open the module →</a>
       </div>
-    </article>
+    </div>
 
-    <article class="piece">
-      <div class="piece-media"><img src="assets/the-close.jpg" alt="The Close module — a decision screen asking what to do about a client invitation, with three options"></div>
-      <div class="piece-text">
+    <div class="panel active" id="p3">
+      <div class="panel-media"><img src="assets/the-close.jpg" alt="The Close module — a decision screen asking what to do about a client invitation, with three options"></div>
+      <div>
         <div class="piece-tag">Storyline 360 · Compliance</div>
         <h3>The Close</h3>
         <div class="subtitle">Gifts &amp; hospitality in the grey zone</div>
-        <p class="desc">A scenario-based compliance micro-module. The learner faces a client invitation during a live negotiation, where two of the three options sound perfectly reasonable. The teaching point is the trap: the risk isn't the value of the gift or whether it's pre-approved — it's the timing. Accepting hospitality while a decision is still open looks like it's <em>for</em> the decision, and "I got it approved" doesn't fix that.</p>
+        <p class="desc">A scenario-based compliance micro-module. The learner faces a client invitation during a live negotiation, where two of the three options sound perfectly reasonable. The trap: it's not the value of the gift, it's the timing.</p>
         <div class="why">
           <span class="why-lab">The quiet choice</span>
-          <p>Deliberately restrained, almost text-only — because nothing undercuts "this is a serious conversation about ethics" quite like a confetti animation after someone accepts an invitation they shouldn't have. No points, no badges, no scoreboard. Just the decision, and the slow, uncomfortable realisation of what it costs.</p>
+          <p>Deliberately restrained, almost text-only — nothing undercuts a serious ethics conversation like a confetti animation after someone accepts an invitation they shouldn't have.</p>
         </div>
         <a class="piece-link" href="https://360.eu.articulate.com/review/content/5b270b07-558f-43c8-bba6-cb0264602412/review" target="_blank" rel="noopener">View in Articulate Review →</a>
       </div>
-    </article>
+    </div>
 
-    <article class="piece">
-      <div class="piece-media"><img src="assets/fortune-teller.jpg" alt="Fortune Teller module — a paper fortune-teller shape split into four coloured triangles with the prompt Pick a color"></div>
-      <div class="piece-text">
+    <div class="panel" id="p4">
+      <div class="panel-media"><img src="assets/fortune-teller.jpg" alt="Fortune Teller module — a paper fortune-teller shape split into four coloured triangles with the prompt Pick a color"></div>
+      <div>
         <div class="piece-tag">Storyline 360 · Creative</div>
         <h3>Fortune Teller</h3>
         <div class="subtitle">A schoolyard game, repurposed for L&amp;D</div>
-        <p class="desc">The paper fortune teller everyone folded as a kid — pick a colour, pick a number, lift the flap — rebuilt in Storyline to deliver instructional-design insights. Behind each number is a short, sharp, usable idea about how learning works and where it usually goes wrong.</p>
+        <p class="desc">The paper fortune teller everyone folded as a kid — pick a colour, pick a number, lift the flap — rebuilt in Storyline to deliver instructional-design insights.</p>
         <div class="why">
           <span class="why-lab">The opposite number</span>
-          <p>I folded dozens of these as a kid and never once imagined building one in Storyline for grown adults with LMS logins. I don't have one house style — I pick the register the content deserves. This one got to be loud, colourful and a little silly, and it let me stretch the Storyline craft (custom states, layered branching) a restrained module like The Close never shows off.</p>
+          <p>I folded dozens of these as a kid and never once imagined building one in Storyline for grown adults with LMS logins. I pick the register the content deserves — this one got to be loud and a little silly.</p>
         </div>
         <a class="piece-link" href="https://360.eu.articulate.com/review/content/aa0eb9a3-09b1-4ec2-824b-37dfa38907b5/review" target="_blank" rel="noopener">View in Articulate Review →</a>
       </div>
-    </article>
+    </div>
 
-    <article class="piece">
-      <div class="piece-media">
+    <div class="panel" id="p5">
+      <div class="panel-media">
         <div class="quote-panel">
           <span class="quote-eyebrow">Storyline 360 · Localization engineering</span>
           <span class="quote-line">German ran 29% longer. Everything else followed.</span>
         </div>
       </div>
-      <div class="piece-text">
+      <div>
         <div class="piece-tag">Case study · EN → DE roundtrip</div>
         <h3>What Breaks When a Course Changes Language</h3>
         <div class="subtitle">A full localization roundtrip, documented</div>
-        <p class="desc">Translation export, reimport, layout repair, voiceover replacement and caption cleanup — with the five findings that came out of doing it rather than reading about it.</p>
+        <p class="desc">Translation export, reimport, layout repair, voiceover replacement and caption cleanup — with the findings that came out of doing it rather than reading about it.</p>
         <div class="why">
           <span class="why-lab">The surprise</span>
-          <p>German took 29% more room than English — which will shock nobody who's ever tried to cram a German compound noun into an English-sized subtitle box. The build itself is the smaller half of this case study; what a language service provider actually needs to see is everything that broke on the way there, and what it cost to fix.</p>
+          <p>German took 29% more room than English — no surprise to anyone who's crammed a German compound noun into an English-sized subtitle box.</p>
         </div>
         <a class="piece-link" href="loc-sample.html">Read the case study →</a>
       </div>
-    </article>
+    </div>
 
   </div>
 </section>
 
-<section id="templates">
+<section id="templates" class="sec sec-olive on-color">
   <div class="wrap">
     <div class="kicker">Templates</div>
     <h2>The working documents behind the builds.</h2>
@@ -322,7 +329,7 @@
         <div class="tpl-img"><img src="assets/preview-rough-concept.jpg" alt="Rough Concept template — a Word document with a branded header and structured sections for project frame, starting point, and target audience"></div>
         <div class="tpl-tag">Word · instructor-led</div>
         <h3>Rough Concept</h3>
-        <p>A high-level design brief for virtual or in-person training. It forces every learning objective into an observable form — behaviour, condition, criterion — so "the participants will understand X" never makes it through. SME comments built in, look &amp; feel kept light, transfer and measurement each given their own space.</p>
+        <p>A high-level design brief for virtual or in-person training. It forces every learning objective into an observable form, so "the participants will understand X" never makes it through.</p>
         <div class="note">Nobody has ever thanked me for a 40-page brief. This one stays short on purpose.</div>
         <a class="dl" href="Rough-Concept_Template.pdf" target="_blank" rel="noopener">View the template (PDF) →</a>
       </article>
@@ -331,8 +338,8 @@
         <div class="tpl-img"><img src="assets/preview-storyboard.jpg" alt="E-Learning Storyboard template — a spreadsheet grid with separate columns for on-screen text and audio narration, interactions, accessibility, and review status"></div>
         <div class="tpl-tag">Excel · e-learning</div>
         <h3>E-Learning Storyboard</h3>
-        <p>A screen-by-screen storyboard. On-screen text and audio narration sit in separate columns, on purpose: reading and hearing the same words at once splits attention and lowers retention, so the format won't let you do it. Accessibility, branching logic, and knowledge checks each have their place.</p>
-        <div class="note">Yes, the text and audio columns are separate on purpose. No, you may not merge them to save space.</div>
+        <p>A screen-by-screen storyboard. On-screen text and audio sit in separate columns, on purpose — reading and hearing the same words at once splits attention.</p>
+        <div class="note">Yes, the columns are separate on purpose. No, you may not merge them to save space.</div>
         <a class="dl" href="E-Learning-Storyboard_Template.xlsx">Download the template (Excel) →</a>
       </article>
 
@@ -340,19 +347,19 @@
   </div>
 </section>
 
-<section id="process">
+<section id="process" class="sec sec-terra on-color">
   <div class="wrap">
     <div class="kicker">How I work</div>
     <h2>From brief to behaviour change.</h2>
-    <p class="section-intro">A structured approach that doesn't fall apart under deadline pressure. Each phase ends in something a stakeholder can see and sign off.</p>
+    <p class="section-intro">A structured approach that doesn't fall apart under deadline pressure.</p>
     <div class="steps">
 
       <div class="step">
         <div class="no">01</div>
         <div>
           <h4>Frame the problem</h4>
-          <p>Before any content: what should be different afterwards, and how will we know? If the answer is "people should know about X," that's a topic, not an objective — so we fix that first.</p>
-          <span class="deliv">Deliverable · rough concept, signed off</span>
+          <p>What should be different afterwards, and how will we know? "People should know about X" is a topic, not an objective.</p>
+          <span class="deliv">Deliverable · rough concept</span>
         </div>
       </div>
 
@@ -360,7 +367,7 @@
         <div class="no">02</div>
         <div>
           <h4>Design the decisions</h4>
-          <p>Objectives, structure, and the moments that actually matter — usually the calls learners get wrong under pressure. I design for those, not for the quiz.</p>
+          <p>Objectives, structure, and the moments that actually matter — usually the calls learners get wrong under pressure.</p>
           <span class="deliv">Deliverable · storyboard</span>
         </div>
       </div>
@@ -369,7 +376,7 @@
         <div class="no">03</div>
         <div>
           <h4>Build</h4>
-          <p>Prototype, then full build in Storyline or Rise, reviewed in Articulate Review so stakeholders react to the real thing, not a spec.</p>
+          <p>Prototype, then full build in Storyline or Rise, reviewed in Articulate Review so stakeholders react to the real thing.</p>
           <span class="deliv">Deliverable · working module</span>
         </div>
       </div>
@@ -378,7 +385,7 @@
         <div class="no">04</div>
         <div>
           <h4>Ship properly</h4>
-          <p>SCORM/xAPI packaging, LMS upload, testing, and the slightly awkward learner comms explaining why this training exists. I don't vanish the moment the file is built.</p>
+          <p>SCORM/xAPI packaging, LMS upload, testing, and the slightly awkward learner comms explaining why this training exists.</p>
         </div>
       </div>
 
@@ -386,7 +393,7 @@
         <div class="no">05</div>
         <div>
           <h4>Close the loop</h4>
-          <p>Measurement tied back to the objectives: did behaviour change? Completion tells you they finished — it doesn't tell you it worked.</p>
+          <p>Measurement tied back to the objectives: did behaviour change? Completion tells you they finished — not that it worked.</p>
         </div>
       </div>
 
@@ -394,7 +401,7 @@
   </div>
 </section>
 
-<section id="contact">
+<section id="contact" class="sec sec-ink on-color">
   <div class="wrap">
     <div class="kicker">Contact</div>
     <h2>Get in touch.</h2>
@@ -408,16 +415,23 @@
 
 </main>
 
-<footer style="margin-left:var(--side-w)">
-  <div class="wrap foot">
+<footer>
+  <div class="foot">
     <span>© 2026 Kerstin Gal · Instructional Designer</span>
     <span>DACH · Remote</span>
   </div>
 </footer>
 
-<style>
-  @media(max-width:900px){ footer{margin-left:0} }
-</style>
+<script>
+  document.querySelectorAll('.worktab').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      document.querySelectorAll('.worktab').forEach(function(b){ b.classList.remove('active'); });
+      document.querySelectorAll('.panel').forEach(function(p){ p.classList.remove('active'); });
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.panel).classList.add('active');
+    });
+  });
+</script>
 
 </body>
 </html>
